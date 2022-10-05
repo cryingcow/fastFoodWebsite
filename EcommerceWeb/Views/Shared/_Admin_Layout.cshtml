@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARON</title>
+    <link rel="icon" href="~/image/LogoAron.png">
+    <link href="~/Content/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    @*<script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .navbar-brand {
+            color: black;
+            margin-top: 20px;
+        }
+
+            .navbar-brand:hover {
+                color: black;
+            }
+
+        .homeNav:hover {
+            color: #1998E8;
+        }
+
+        .newArrivalsNav:hover {
+            color: #1998E8;
+        }
+
+        .infoNav:hover {
+            color: #1998E8;
+        }
+
+        .navbar-fixed-top {
+            background-color: #F8F9FD;
+            border-bottom-color: #F8F9FD;
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .btn:hover {
+            color: #1998E8;
+        }
+
+        .btn {
+            color: white
+        }
+
+        .text-uppercase {
+            margin-bottom: 40px
+        }
+
+        li {
+            margin: 20px 0;
+        }
+
+        .text-white:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+        .text-white {
+            color: lightgray
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .dropdown:hover .dropdown-menu-dark {
+            display: block;
+        }
+
+    </style>
+
+</head>
+<body style="padding-bottom: 0">
+    <button onclick="topFunction()" id="myBtn" title="GO TO TOP" style="width: 30px; height: 30px; border-radius: 0px; background-color:black"><i class="fa-solid fa-angle-up" style="color:white"></i></button>
+    <div class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("ARON", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item dropdown" style="padding: 0px">
+                        <a href="javascript:document.getElementById('logoutForm').submit()" style="color: black">LOG OUT</a>
+                    </li>
+                </ul>
+            }
+        </div>
+
+    </div>
+    @RenderBody()
+    <hr />
+
+    <!-- Footer -->
+    <footer class="bg-dark text-center text-white" id="info" style="background-color: #262626; color: white">
+        <!-- Grid container -->
+        <div class="container p-4" style="margin-bottom: 30px">
+            <!-- Section: Social media -->
+            <section class="mb-4" style="margin: 30px">
+                <!-- Facebook -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://vi-vn.facebook.com/" role="button">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <!-- Twitter -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/" role="button">
+                    <i class="fab fa-twitter"></i>
+                </a>
+
+                <!-- Google -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://google.com/" role="button">
+                    <i class="fab fa-google"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <!-- Github -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/" role="button">
+                    <i class="fab fa-github"></i>
+                </a>
+            </section>
+            <section class="mb-4">
+                <p style="font-size: 20px; margin: 30px">
+                    Welcome to ARON
+                </p>
+            </section>
+            <!-- Section: Text -->
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: center">
+                        <h5 class="text-uppercase">EXCLUSIVE SERVICES</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!" class="text-white">Aron Services</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Book An Appointment</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Gucci Osteria Beverly Hills da Massimo Bottura</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: center">
+                        <h5 class="text-uppercase">NEED HELP?</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!" class="text-white">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Shipping Services</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Payment Options</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Returns & Exchanges</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: center">
+                        <h5 class="text-uppercase">THE COMPANY</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!" class="text-white">About Aron</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Legal</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Privacy & Cookies</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Corporate Information</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Aron Garden</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: center">
+                        <h5 class="text-uppercase">FIND US ON</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!" class="text-white">Facebook</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Youtube</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Instagram</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Twitter</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+        </div>
+        <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); padding: 20px 0">
+            © 2020 Copyright:
+            <a class="text-white" href="#">ARON.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

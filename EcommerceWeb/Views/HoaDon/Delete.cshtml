@@ -1,0 +1,34 @@
+﻿@model EcommerceWeb.Models.HoaDon
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+<style>
+    .btn-default:hover {
+        color: lightgray;
+    }
+
+    .btnBack {
+        color: black;
+        margin-left: 10px;
+    }
+
+        .btnBack:hover {
+            text-decoration: none;
+            color: lightgray
+        }
+</style>
+
+<div class="container" style="margin:100px;">
+    <h3 style="margin-bottom: 50px;">Are you sure you want to delete this?</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" style="border-radius: 0px; background-color: black; color: white;" />
+            @Html.ActionLink("Back", "Index", null, new { @class = "btnBack" })
+        </div>
+    }
+</div>

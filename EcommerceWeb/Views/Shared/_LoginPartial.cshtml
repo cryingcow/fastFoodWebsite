@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNet.Identity
+<style>
+    #btnSearch:hover {
+        color: white;
+        background-color: darkgray
+    }
+
+    .dropdown:hover .dropdown-menu-dark {
+        display: block
+    }
+
+    .fa-user:hover {
+        cursor: pointer
+    }
+</style>
+<header>
+    @{
+            var db = new EcommerceWeb.DAL.EcommerceContext();
+    }
+</header>
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/Home/Search"><i title="Search" class="fa-solid fa-search" style="color: black"></i></a></li>
+            <li>
+                <a href="/ShoppingCart/ShowToCart">
+                    <i class="fa fa-shopping-cart" style="color: black"></i>
+                    @Html.Action("BagCart", "ShoppingCart")
+                </a>
+            </li>
+            <li class="nav-item dropdown" style="padding: 15px 15px">
+                <i class="fa fa-user" style="color: black"></i>
+                <span class="caret"></span>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="/KhachHang/Details/@db.KhachHangs.FirstOrDefault(x => x.Username == User.Identity.Name).KhachHangID">Profile</a></li>
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="/ShoppingCart/ShowToCart">
+                <i title="Cart" class="fa-solid fa-cart-shopping" style="color: black"></i>
+                @Html.Action("BagCart", "ShoppingCart")
+            </a>            
+        </li>
+        <li><a href="/Home/Search"><i title="Search" class="fa-solid fa-search" style="color: black"></i></a></li>
+        <li><a href="@Url.Action("Register","Account")"><i title="Sign Up" class="fa-solid fa-user-plus" style="color: black"></i></a></li>
+        <li><a href="@Url.Action("Login","Account")"><i title="Login" class="fa-solid fa-arrow-right-to-bracket" style="color: black"></i></a></li>
+    </ul>
+}

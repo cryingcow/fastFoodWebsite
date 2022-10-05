@@ -1,0 +1,128 @@
+﻿@model EcommerceWeb.Models.Cart
+@using System.Globalization;
+@{
+    ViewBag.Title = "ShowToCart";
+    CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+}
+<head>
+    <style>
+        #buttonBuyNow {
+            color: black;
+            border-radius: 0px;
+            background: transparent;
+            border: solid 1px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        div.gallery img {
+            width: 150px;
+            height: 150px;
+            margin: 30px;
+            display: inline-block;
+        }
+
+
+        div.gallery {
+            margin-left: 30px;
+            width: auto;
+            height: auto;
+            display: inline-block;
+            background-color: #E7E7E7;
+        }
+
+        #proItem {
+            margin-left: 5px;
+            padding: 20px;
+        }
+
+
+        table, th, tr, td {
+            border: none !important;
+        }
+
+
+        #content-product {
+            text-align: left;
+        }
+        #box {
+            border-radius: 0px;
+            border: solid 0.5px
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+
+        @if (Model.Items.Count() != 0)
+        {
+            <a href="/"><i title="back" class="fa-solid fa-arrow-left-long" style="color: black; margin-top: 75px; font-size: 30px"></i></a>
+            <h1 style="margin-bottom: 20px; text-align: center">YOUR CART</h1>
+                    foreach (var item in Model.Items)
+                    {
+                        double tongtien = Convert.ToDouble(item.shoppingProduct.DonGia * item.shoppingQuantity);
+                        <div class="row" style="margin-top: 50px">
+                            <div class="col-md-3 gallery">
+                                <a>
+                                    <img class="zoomPic" src="@Url.Content(item.shoppingProduct.HinhAnh)" alt="ảnh lỗi rồi">
+                                </a>
+                            </div>
+                            <div class="col-md-9">
+                                <table class="table">
+                                    <tr>
+                                        <th scope="row">Name</th>
+                                        <td id="content-product">@Html.DisplayFor(model => item.shoppingProduct.TenMH)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Price</th>
+                                        <td id="content-product">$ @item.shoppingProduct.DonGia.ToString("#,###", @cul.NumberFormat)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Quantity</th>
+                                        <td id="content-product">
+                                            @using (Html.BeginForm("UpdateQuantityInCart", "ShoppingCart"))
+                                            {
+                                                <input type="hidden" value="@item.shoppingProduct.MatHangID" name="ID_MatHang" />
+                                                <input id="box" type="number" min="1" max="30" value="@item.shoppingQuantity" name="SoLuong_MH" style="width: 60px" />
+                                                <input id="box" style="background-color: black; color: white" type="submit" value="Update" />
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Total Price</th>
+                                        <td id="content-product">$ @tongtien.ToString("#,###", @cul.NumberFormat)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a class="remove" href="/ShoppingCart/RemoveProductInCart/@item.shoppingProduct.MatHangID" style="color: black; text-decoration: none; font-weight: bold;">
+                                                Remove
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                    }
+    <div class="purchase" style="text-align: right">
+        <br />
+        <span style="padding-bottom: 10px; font-weight: bold; font-size: 15px;">TOTAL PRICE: $ @Model.TotalPrice().ToString("#,###", @cul.NumberFormat)</span><br /><br /><br />
+        <a href="/ShoppingCart/Payment" id="buttonBuyNow" class="btn btn-primary btn-sm active" type="button" aria-pressed="true">
+            PURCHASE
+        </a>
+    </div>
+        }
+        else
+        {
+            <div class="container">
+                <img src="~/image/empty-cart.png" style="margin-left: 368px; width: 30%; margin-top:65px" />
+                <h4 style="margin-top: 0px;margin-bottom: 0px; text-align: center; font-weight: bold">
+                    Your cart is empty
+                </h4>
+                <h5 style="text-align: center">
+                    Looks like you have not added anything to your cart. Click <a href="/" style="color: black">here</a> for shopping
+                </h5>
+            </div>
+        }
+    </div>
+</body>
+

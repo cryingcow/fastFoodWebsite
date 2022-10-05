@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EcommerceWeb.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+<style>
+    #containerExtra {
+        background-color: black;
+        height: 100px;
+        width: 100px;
+        color: white;
+        padding: 40px 0;
+        border-radius: 50%;
+        margin: 30px auto;
+    }
+    a {
+        color: white
+    }
+    a:hover {
+        color: white;
+        text-decoration: none;
+        text-decoration-color: white;
+    }
+    #containerExtra:hover {
+        height: 100%;
+        width: 100%;
+        border-radius: 0px;
+        color: white;
+    }
+    #containerExtra {
+        color: white;
+    }
+    #item:hover {
+        color: white;
+    }
+    #item {
+        color: white;
+    }
+</style>
+
+<div class="text-center" style="text-align: center; margin-top: 100px; ">
+    <h2 style="margin: 40px">MANAGEMENT SYSTEM</h2>
+    <div id="containerExtra"><a id="item" href="/KhachHang/Index" style="text-decoration: none">USER</a></div>
+    <div id="containerExtra"><a id="item" href="/MatHang/Index" style="text-decoration: none">PRODUCT</a></div>
+    <div id="containerExtra"><a id="item" href="/HoaDon/Index" style="text-decoration: none">ORDER</a></div>
+    <div id="containerExtra"><a id="item" href="/Admin/Statistic" style="text-decoration: none">STATISTIC</a></div>
+</div>
