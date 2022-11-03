@@ -74,7 +74,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Price</th>
-                                        <td id="content-product">$ @item.shoppingProduct.DonGia.ToString("#,###", @cul.NumberFormat)</td>
+                                        <td id="content-product">@item.shoppingProduct.DonGia.ToString("#,###", @cul.NumberFormat) VND</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Quantity</th>
@@ -89,7 +89,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Total Price</th>
-                                        <td id="content-product">$ @tongtien.ToString("#,###", @cul.NumberFormat)</td>
+                                        <td id="content-product">@tongtien.ToString("#,###", @cul.NumberFormat) VND</td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -105,7 +105,7 @@
                     }
     <div class="purchase" style="text-align: right">
         <br />
-        <span style="padding-bottom: 10px; font-weight: bold; font-size: 15px;">TOTAL PRICE: $ @Model.TotalPrice().ToString("#,###", @cul.NumberFormat)</span><br /><br /><br />
+        <span style="padding-bottom: 10px; font-weight: bold; font-size: 15px;">TOTAL PRICE: @Model.TotalPrice().ToString("#,###", @cul.NumberFormat) VND</span><br /><br /><br />
         <a href="/ShoppingCart/Payment" id="buttonBuyNow" class="btn btn-primary btn-sm active" type="button" aria-pressed="true">
             PURCHASE
         </a>
