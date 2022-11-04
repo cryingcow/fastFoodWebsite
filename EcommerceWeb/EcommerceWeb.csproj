@@ -416,7 +416,7 @@
     <Content Include="image\cover2.jpg" />
     <Content Include="image\cover1.jpg" />
     <Content Include="image\fries.png" />
-    <Content Include="image\JankyFoodLogo.png" />
+    <Content Include="image\JankyFood.png" />
     <Content Include="image\LogoJanky.png" />
     <Content Include="image\giftbag1.jpg" />
     <Content Include="image\giftbag2.jpg" />

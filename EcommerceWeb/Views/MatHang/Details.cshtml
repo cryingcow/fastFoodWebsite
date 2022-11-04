@@ -57,7 +57,7 @@
 </style>
 
 @{
-    string[] colors = Model.Color.Split(' ');
+    //string[] colors = Model.Color.Split(' ');
     string[] sizes = Model.Size.Split(',');
     List<string> description = new List<string>
     {
@@ -90,13 +90,13 @@
                         Your selection is available for immediate purchase online.
                     </span>
                 </div><br />
-                <select class="form-select" aria-label="Default select example">
+                @*<select class="form-select" aria-label="Default select example">
                     <option selected>Color</option>
                     @foreach (string color in colors)
                     {
                         <option class="size-option" value=@color>@color</option>
                     }
-                </select><br />
+                </select><br />*@
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Select Size</option>
                     @foreach (string size in sizes)
