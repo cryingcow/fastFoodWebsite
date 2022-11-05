@@ -7,7 +7,156 @@
     <head>
         <link rel="stylesheet" href="~/Content/Site.css">
         <style>
-            div.item img {
+            .food_section .filters_menu {
+                padding: 0;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                list-style-type: none;
+                margin: 45px 0 20px 0;
+            }
+
+                .food_section .filters_menu li {
+                    padding: 7px 25px;
+                    cursor: pointer;
+                    border-radius: 25px;
+                }
+
+                    .food_section .filters_menu li.active {
+                        background-color: #222831;
+                        color: #ffffff;
+                    }
+
+            .food_section .box {
+                position: relative;
+                margin-top: 25px;
+                background-color: #ffffff;
+                border-radius: 10px;
+                color: #ffffff;
+                border-radius: 15px;
+                overflow: hidden;
+                background: linear-gradient(to bottom, #f1f2f3 25px, #222831 25px);
+            }
+
+                .food_section .box .img-box {
+                    background: #F4EBDA;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    height: 215px;
+                    border-radius: 0 0 0 45px;
+                    margin: -1px;
+                    padding: 25px;
+                }
+
+                    .food_section .box .img-box img {
+                        max-width: 100%;
+                        max-height: 145px;
+                        -webkit-transition: all .2s;
+                        transition: all .2s;
+                    }
+
+                .food_section .box .detail-box {
+                    padding: 25px;
+                    height: 240px;
+                    position:relative;
+                }
+
+                    .food_section .box .detail-box h5 {
+                        font-weight: 600;
+                    }
+
+                    .food_section .box .detail-box p {
+                        font-size: 15px;
+                        display: -webkit-box;
+                        max-width: 640px;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                       
+                    }
+
+                    .food_section .box .detail-box h6 {
+                        margin-top: 10px;
+                    }
+
+                .food_section .box .options {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-pack: justify;
+                    -ms-flex-pack: justify;
+                    justify-content: space-between;
+                    position: absolute;
+                    bottom:25px;
+                    left:25px;
+                    right:25px;
+                }
+
+                    .food_section .box .options a {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 100%;
+                        background: #ffbe33;
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                        justify-content: center;
+                        -webkit-box-align: center;
+                        -ms-flex-align: center;
+                        align-items: center;
+                    }
+
+                        .food_section .box .options a svg {
+                            width: 18px;
+                            height: auto;
+                            fill: #ffffff;
+                        }
+
+                .food_section .box:hover .img-box img {
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.3);
+                }
+
+            .food_section .btn-box {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                margin-top: 45px;
+            }
+
+                .food_section .btn-box a {
+                    display: inline-block;
+                    padding: 10px 55px;
+                    background-color: #ffbe33;
+                    color: #ffffff;
+                    border-radius: 45px;
+                    -webkit-transition: all 0.3s;
+                    transition: all 0.3s;
+                    border: none;
+                }
+
+                    .food_section .btn-box a:hover {
+                        background-color: #e69c00;
+                    }
+            
+                div .item img {
                 width: 150px;
                 height: 150px;
                 margin: 30px;
@@ -104,6 +253,7 @@
             .col-md-3:hover .page-wrapper {
                 opacity: 1;
             }
+           
         </style>
     </head>
 
@@ -156,158 +306,1027 @@
     <h2 id="newArrivals" style="font-family: inherit; color: #5f5b57; margin: 100px 0px 50px 0px">
         NEW ARRIVALS
     </h2>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="item">
-                    <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 11).MatHangID})">
-                        <img class="zoomPic" src="@Url.Content(@Model.First(x => x.MatHangID == 11).HinhAnh)" alt="ảnh lỗi rồi">
-                    </a>
-                </div>
-                <div class="page-wrapper">
-                    <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 11).MatHangID" id="buttonCart" class="btn btn-primary btn-sm active" type="button" aria-pressed="true">Add To Cart</a>
-                </div>
-                <p style="font-weight: bold">@Model.First(x => x.MatHangID == 11).TenMH</p>
-                <p>$ @Model.First(x => x.MatHangID == 11).DonGia.ToString("#,###", @cul.NumberFormat)</p>
-            </div>
-
-            <div class="col-md-3">
-                <div class="item">
-                    <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 2).MatHangID})">
-                        <img class="zoomPic" src="@Url.Content(@Model.First(x => x.MatHangID == 2).HinhAnh)" alt="ảnh lỗi rồi">
-                    </a>
-                </div>
-                <div class="page-wrapper">
-                    <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 2).MatHangID" id="buttonCart" class="btn btn-primary btn-sm active" type="button" aria-pressed="true">Add To Cart</a>
-                </div>
-                <p style="font-weight: bold">@Model.First(x => x.MatHangID == 2).TenMH</p>
-                <p>$ @Model.First(x => x.MatHangID == 2).DonGia.ToString("#,###", @cul.NumberFormat)</p>
-            </div>
-
-            <div class="col-md-3">
-                <div class="item">
-                    <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 20).MatHangID})">
-                        <img class="zoomPic" src="@Url.Content(@Model.First(x => x.MatHangID == 20).HinhAnh)" alt="ảnh lỗi rồi">
-                    </a>
-                </div>
-                <div class="page-wrapper">
-                    <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 20).MatHangID" id="buttonCart" class="btn btn-primary btn-sm active" type="button" aria-pressed="true">Add To Cart</a>
-                </div>
-                <p style="font-weight: bold">@Model.First(x => x.MatHangID == 20).TenMH</p>
-                <p>$ @Model.First(x => x.MatHangID == 38).DonGia.ToString("#,###", @cul.NumberFormat)</p>
-            </div>
-
-            <div class="col-md-3">
-                <div class="item">
-                    <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 12).MatHangID})">
-                        <img class="zoomPic" src="@Url.Content(@Model.First(x => x.MatHangID == 12).HinhAnh)" alt="ảnh lỗi rồi">
-                    </a>
-                </div>
-                <div class="page-wrapper">
-                    <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 12).MatHangID" id="buttonCart" class="btn btn-primary btn-sm active" type="button" aria-pressed="true">Add To Cart</a>
-                </div>
-                <p style="font-weight: bold">@Model.First(x => x.MatHangID == 12).TenMH</p>
-                <p>$ @Model.First(x => x.MatHangID == 12).DonGia.ToString("#,###", @cul.NumberFormat)</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-3">
-                <div class="item">
-                    <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 1).MatHangID})">
-                        <img class="zoomPic" src="@Url.Content(@Model.First(x => x.MatHangID == 1).HinhAnh)" alt="ảnh lỗi rồi">
-                    </a>
-                </div>
-                <div class="page-wrapper">
-                    <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 1).MatHangID" id="buttonCart" class="btn btn-primary btn-sm active" type="button" aria-pressed="true">Add To Cart</a>            
-                </div>
-                <p style="font-weight: bold">@Model.First(x => x.MatHangID == 1).TenMH</p>
-                <p>$ @Model.First(x => x.MatHangID == 1).DonGia.ToString("#,###", @cul.NumberFormat)</p>
-            </div>
-
-
-            <div class="col-md-3">
-                <div class="item">
-                    <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 19).MatHangID})">
-                        <img class="zoomPic" src="@Url.Content(@Model.First(x => x.MatHangID == 19).HinhAnh)" alt="ảnh lỗi rồi">
-                    </a>
-                </div>
-                <div class="page-wrapper">
-                    <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 19).MatHangID" id="buttonCart" class="btn btn-primary btn-sm active" type="button" aria-pressed="true">Add To Cart</a>
-                </div>
-                <p style="font-weight: bold">@Model.First(x => x.MatHangID == 19).TenMH</p>
-                <p>$ @Model.First(x => x.MatHangID == 19).DonGia.ToString("#,###", @cul.NumberFormat)</p>
-            </div>
-
-            <div class="col-md-3">
-                <div class="item">
-                    <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 15).MatHangID})">
-                        <img class="zoomPic" src="@Url.Content(@Model.First(x => x.MatHangID == 15).HinhAnh)" alt="ảnh lỗi rồi">
-                    </a>
-                </div>
-                <div class="page-wrapper">
-                    <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 15).MatHangID" id="buttonCart" class="btn btn-primary btn-sm active" type="button" aria-pressed="true">Add To Cart</a>
-                </div>
-                <p style="font-weight: bold">@Model.First(x => x.MatHangID == 15).TenMH</p>
-                <p>$ @Model.First(x => x.MatHangID == 15).DonGia.ToString("#,###", @cul.NumberFormat)</p>
-            </div>
-
-            <div class="col-md-3">
-                <div class="item">
-                    <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 14).MatHangID})">
-                        <img class="zoomPic" src="@Url.Content(@Model.First(x => x.MatHangID == 14).HinhAnh)" alt="ảnh lỗi rồi">
-                    </a>
-                </div>
-                <div class="page-wrapper">
-                    <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 14).MatHangID" id="buttonCart" class="btn btn-primary btn-sm active" type="button" aria-pressed="true">Add To Cart</a>
-                </div>
-                <p style="font-weight: bold">@Model.First(x => x.MatHangID == 14).TenMH</p>
-                <p>$ @Model.First(x => x.MatHangID == 14).DonGia.ToString("#,###", @cul.NumberFormat)</p>
-            </div>
-        </div>
     </div>
-
-    <h2 id="stories" style="font-family: inherit; color: #5f5b57; margin: 100px 0px 50px 0px">
-        STORIES
-    </h2>
-    <div class="container-fluid">
-        <div id="stories" class="row">
-            <div class="col-md-6">
-                <div>
-                    <img class="stories" src="~/image/stories1.jpg" alt="ảnh lỗi rồi">
-                </div>
-                <p class="title-stories">Guests Attending Exquisite Gucci</p>
-                <a href="https://www.gucci.com/us/en/st/stories/runway/article/exquisite-fashion-show-guests-gallery" class="stories-link" target="_blank">A PHOTO GALLERY </a>
-            </div>
-
-            <div class="col-md-6">
-                <div>
-                    <img class="stories" src="~/image/stories4.jpg" alt="ảnh lỗi rồi">
-                </div>
-                <p class="title-stories">Exquisite Beauty</p>
-                <a href="https://www.gucci.com/us/en/st/stories/article-category-beauty/article/exquisite-fashion-show-beauty-details" class="stories-link" target="_blank">THE MAKEUP AT THE SHOW</a>
-            </div>
-        </div>
-
-        <div id="stories" class="row">
-
-            <div class="col-md-6">
-                <div>
-                    <img class="stories" src="~/image/stories3.jpg" alt="ảnh lỗi rồi">
-                </div>
-                <p class="title-stories">Fashioning Masculinities</p>
-                <a href="https://www.gucci.com/us/en/st/capsule/va-fashioning-masculinities" class="stories-link" target="_blank">THE ART OF MENSWEAR</a>
-            </div>
-
-            <div class="col-md-6">
-                <div>
-                    <img class="stories" src="~/image/stories2.jpg" alt="ảnh lỗi rồi">
-                </div>
-                <p class="title-stories">Magical Mirrors</p>
-                <a href="https://www.gucci.com/us/en/st/stories/runway/article/exquisite-fashion-show-looks-gallery" class="stories-link" target="_blank">THE LOOKS</a>
-            </div>
-        </div>
-    </div>
-
-
+<section class="food_section layout_padding-bottom">
+    <div class="container">
+        <div class="filters-content">
+            <div class="col-md-3">
+                <div class="box">
+                    <div>
+                        <div class="img-box">
+                            <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 11).MatHangID})">
+                                <img src="@Url.Content(@Model.First(x => x.MatHangID == 11).HinhAnh)" alt="ảnh lỗi rồi">
+                                </a>
 </div>
+                        <div class="detail-box">
+                            <h5>
+                                @Model.First(x => x.MatHangID == 11).TenMH
+                            </h5>
+                            <p class="cut-text">
+                                @Model.First(x => x.MatHangID == 11).MoTa
+                            </p>
+                            <div class="options">
+                                <h6>
+                                    @Model.First(x => x.MatHangID == 11).DonGia.ToString("#,###", @cul.NumberFormat) VNĐ
+                                </h6>
+                                <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 11).MatHangID">
+                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve" >
+                                    <g>
+                                    <g>
+                                    <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                                    <g>
+                                    <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                                    <g>
+                                    <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                      </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="box">
+                    <div>
+                        <div class="img-box">
+                            <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 2).MatHangID})">
+                                <img src="@Url.Content(@Model.First(x => x.MatHangID == 2).HinhAnh)" alt="ảnh lỗi rồi">
+                            </a>
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                @Model.First(x => x.MatHangID == 2).TenMH
+                            </h5>
+                            <p class="cut-text">
+                                @Model.First(x => x.MatHangID == 2).MoTa
+                            </p>
+                            <div class="options">
+                                <h6>
+                                    @Model.First(x => x.MatHangID == 2).DonGia.ToString("#,###", @cul.NumberFormat) VNĐ
+                                </h6>
+                                <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 2).MatHangID">
+                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                                    <g>
+                                    <g>
+                                    <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                                    <g>
+                                    <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                                    <g>
+                                    <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                      </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="box">
+                    <div>
+                        <div class="img-box">
+                            <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 3).MatHangID})">
+                                <img src="@Url.Content(@Model.First(x => x.MatHangID == 3).HinhAnh)" alt="ảnh lỗi rồi">
+                            </a>
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                @Model.First(x => x.MatHangID == 3).TenMH
+                            </h5>
+                            <p class="cut-text">
+                                @Model.First(x => x.MatHangID == 3).MoTa
+                            </p>
+                            <div class="options">
+                                <h6>
+                                    @Model.First(x => x.MatHangID == 3).DonGia.ToString("#,###", @cul.NumberFormat) VNĐ
+                                </h6>
+                                <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 3).MatHangID">
+                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                                    <g>
+                                    <g>
+                                    <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                                    <g>
+                                    <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                                    <g>
+                                    <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                      </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="box">
+                    <div>
+                        <div class="img-box">
+                            <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 12).MatHangID})">
+                                <img src="@Url.Content(@Model.First(x => x.MatHangID == 12).HinhAnh)" alt="ảnh lỗi rồi">
+                            </a>
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                @Model.First(x => x.MatHangID == 12).TenMH
+                            </h5>
+                            <p class="cut-text">
+                                @Model.First(x => x.MatHangID == 12).MoTa
+                            </p>
+                            <div class="options">
+                                <h6>
+                                    @Model.First(x => x.MatHangID == 12).DonGia.ToString("#,###", @cul.NumberFormat) VNĐ
+                                </h6>
+                                <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 12).MatHangID">
+                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                                    <g>
+                                    <g>
+                                    <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                                    <g>
+                                    <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                                    <g>
+                                    <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                      </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="box">
+                    <div>
+                        <div class="img-box">
+                            <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 25).MatHangID})">
+                                <img src="@Url.Content(@Model.First(x => x.MatHangID == 25).HinhAnh)" alt="ảnh lỗi rồi">
+                            </a>
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                @Model.First(x => x.MatHangID == 25).TenMH
+                            </h5>
+                            <p class="cut-text">
+                                @Model.First(x => x.MatHangID == 25).MoTa
+                            </p>
+                            <div class="options">
+                                <h6>
+                                    @Model.First(x => x.MatHangID == 25).DonGia.ToString("#,###", @cul.NumberFormat) VNĐ
+                                </h6>
+                                <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 25).MatHangID">
+                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                                    <g>
+                                    <g>
+                                    <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                                    <g>
+                                    <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                                    <g>
+                                    <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                                    <g>
+                        </g>
+                      </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="col-md-3">
+            <div class="box">
+                <div>
+                    <div class="img-box">
+                        <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 14).MatHangID})">
+                            <img src="@Url.Content(@Model.First(x => x.MatHangID == 14).HinhAnh)" alt="ảnh lỗi rồi">
+                        </a>
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            @Model.First(x => x.MatHangID == 14).TenMH
+                        </h5>
+                        <p class="cut-text">
+                            @Model.First(x => x.MatHangID == 14).MoTa
+                        </p>
+                        <div class="options">
+                            <h6>
+                                @Model.First(x => x.MatHangID == 14).DonGia.ToString("#,###", @cul.NumberFormat) VNĐ
+                            </h6>
+                            <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 14).MatHangID">
+                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                                <g>
+                                <g>
+                                <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                <g>
+                                <g>
+                                <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                <g>
+                                <g>
+                                <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                      </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="box">
+                <div>
+                    <div class="img-box">
+                        <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 19).MatHangID})">
+                            <img src="@Url.Content(@Model.First(x => x.MatHangID == 19).HinhAnh)" alt="ảnh lỗi rồi">
+                        </a>
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            @Model.First(x => x.MatHangID == 19).TenMH
+                        </h5>
+                        <p class="cut-text">
+                            @Model.First(x => x.MatHangID == 19).MoTa
+                        </p>
+                        <div class="options">
+                            <h6>
+                                @Model.First(x => x.MatHangID == 19).DonGia.ToString("#,###", @cul.NumberFormat) VNĐ
+                            </h6>
+                            <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 19).MatHangID">
+                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                                <g>
+                                <g>
+                                <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                <g>
+                                <g>
+                                <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                <g>
+                                <g>
+                                <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                      </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="box">
+                <div>
+                    <div class="img-box">
+                        <a href="@Url.Action("Details","MatHang", new { id= @Model.First(x => x.MatHangID == 51).MatHangID})">
+                            <img src="@Url.Content(@Model.First(x => x.MatHangID == 51).HinhAnh)" alt="ảnh lỗi rồi">
+                        </a>
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            @Model.First(x => x.MatHangID == 51).TenMH
+                        </h5>
+                        <p class="cut-text">
+                            @Model.First(x => x.MatHangID == 51).MoTa
+                        </p>
+                        <div class="options">
+                            <h6>
+                                @Model.First(x => x.MatHangID == 51).DonGia.ToString("#,###", @cul.NumberFormat) VNĐ
+                            </h6>
+                            <a href="/ShoppingCart/AddtoCart/@Model.First(x => x.MatHangID == 51).MatHangID">
+                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                                <g>
+                                <g>
+                                <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                <g>
+                                <g>
+                                <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                <g>
+                                <g>
+                                <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                                <g>
+                        </g>
+                      </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+
