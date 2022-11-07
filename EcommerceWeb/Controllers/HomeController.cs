@@ -45,7 +45,7 @@ namespace EcommerceWeb.Controllers
 
         public ActionResult Man(int page = 1, int pageSize = 8)
         {
-            List<MatHang> products = db.MatHangs.Where(x => x.Gender == 1).ToList();
+            List<MatHang> products = db.MatHangs.Where(x => x.LoaiID == 1).ToList();
             PagedList<MatHang> model = new PagedList<MatHang>(products, page, pageSize);
             return View(model);
         }

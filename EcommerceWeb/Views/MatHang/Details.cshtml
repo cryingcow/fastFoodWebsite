@@ -61,12 +61,7 @@
     string[] sizes = Model.Size.Split(',');
     List<string> description = new List<string>
     {
-                "The Interlocking G has remained one of the most symbolic codes of the House since its introduction. The distinguishing emblem appears as a leather detail atop this tote. Completing the design's logo feel, the bag is crafted from monogram canvas.",
-                "Reimagined within a refreshed aesthetic that instills a contemporary spirit in classic designs, sartorial jackets become the protagonist of mismatched looks mixing refined fabrics and cult casual materials. A traditional design in blue cotton, the jacket can be worn with its coordinated vest and denim pants for a disruptive take on traditional tailoring.",
-                "Reimagined within a refreshed aesthetic that instills a contemporary spirit in classic designs, sartorial jackets become the protagonist of mismatched looks mixing refined fabrics and cult casual materials. A traditional design in blue cotton, the jacket can be worn with its coordinated vest and denim pants for a disruptive take on traditional tailoring.",
-                "Gucci Aria’s tailoring collection presents formal suit separates developed on plain or patterned fabrics that feature feather details at the hems—recalling the everlasting femininity of forgotten cabaret artists. By infusing typically feminine details into the men’s collection, and vice versa, the lines between the two worlds blur creating looks characterised by an everlasting neutrality.",
-                "High-waisted skirts with side slits walked the Spring Summer 2020 runway, embodying what the Creative Director described as a beautiful cliché of sexiness, inspired by the idea of freedom that fashion experienced in the 90s. Crafted from black cady wool silk crêpe, this skirt speaks to a contemporary, streamlined aesthetic.",
-                "Details taken from the archive continue to be incorporated into the collections with contemporary take. The chevron vintage Web appears on the front of this skirt, recalling the sportswear influences that run through the House's narrative, while the pleated layers of the bottom part add a refined touch."
+                Model.MoTa
             };
     CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
     string a = (Model.DonGia).ToString("#,###", cul.NumberFormat);
@@ -179,12 +174,12 @@
                     </div>
                 </div>
                 <div class="panel panel-title">
-                    <div class="panel-heading">
+                    @*<div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="extra-info" data-toggle="collapse" data-parent="#accordion" href="#collapse2" style="text-decoration: none">GIFT WRAPPING <span style="font-size: 20px; float: right; font-weight: lighter">+</span></a>
                         </h4>
                     </div>
-                    <div id="collapse2" class="panel-collapse collapse">
+                    @*<div id="collapse2" class="panel-collapse collapse">
                         <div class="panel-body" style="text-align: center">
                             <div>
                                 <img src="@Url.Content("~/image/giftbag1.jpg")" style="width: 30%" />
@@ -195,7 +190,7 @@
                                 <div style="margin: 0px 20px 0px 20px">Designed and sourced with the planet in mind is an all-new line of vintage-inspired green packaging—innovatively created to be completely recyclable and accompanied by a Gucci.com exclusive reusable cotton canvas shopper on most orders.</div>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
                 <div class="panel panel-title">
                     <div class="panel-heading">
@@ -225,8 +220,8 @@
             </div>
         </div>
         <div class="col-md-4" style="text-align: center">
-            <img class="image" src="@Url.Content(@Html.DisplayFor(model => model.HinhAnh).ToString())" style="width: 250px; height: 250px" /><br />
-            <div style="text-align: left; font-size: 12px; margin-top: 30px">
+            @*<img class="image" src="@Url.Content(@Html.DisplayFor(model => model.HinhAnh).ToString())" style="width: 250px; height: 250px" /><br />
+            @*<div style="text-align: left; font-size: 12px; margin-top: 30px">
                 PRODUCT DETAILS <br /><br />
                 Style 669707 ZAD88 9783<br /><br /><br />
                 <div style="text-align: left">Details taken from the archive continue to be incorporated into the collections with contemporary take. The chevron vintage Web appears on the front of this skirt, recalling the sportswear influences that run through the House's narrative, while the pleated layers of the bottom part add a refined touch.</div><br /><br />
@@ -240,7 +235,7 @@
                     <li>The model is 179 cm tall. The item in this image is a size 40 (IT)</li>
                     <li>Fabric: 53% Silk, 47% Wool.</li>
                 </ul>
-            </div>
+            </div>*@
         </div>
     </div>
 </div>
