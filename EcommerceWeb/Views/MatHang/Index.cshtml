@@ -21,7 +21,7 @@
             width: auto;
             height: auto;
             display: inline-block;
-            background-color: #E7E7E7;
+            background-color: #F4EBDA;
         }
         #proItem {
             margin-left: 5px;
@@ -37,6 +37,7 @@
 
         .btn-delete {
             color: white;
+            display: block;
         }
 
         table, th, tr, td {
@@ -45,6 +46,7 @@
 
         .btn-edit {
             color: white;
+            display: block;
         }
 
         .btnEdit {
@@ -63,6 +65,9 @@
             }
           #content-product {
               text-align: left;
+          }
+          th{
+              width:120px;
           }
             
     </style>
@@ -96,10 +101,7 @@
                             <tr>
                                 <th scope="row">Name</th>
                                 <td id="content-product">@item.TenMH</td>
-                                <td>
-                                </td>
-                                <td>
-                                </td>
+                                
                             </tr>
                             <tr>
                                 <th scope="row">Price</th>
@@ -114,12 +116,6 @@
                                 <td id="content-product">@item.Size</td>
                             </tr>
                             <tr>
-                                <th scope="row">Color</th>
-                                <td id="content-product">@item.Color</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">For</th>
-                                <td id="content-product">@(item.Gender == 0 ? "Woman" : "Man")</td>
                                 <td>
                                     <div class="btnEdit">
                                         @Html.ActionLink("Edit", "Edit", new { id = item.MatHangID }, new { @class = "btn-edit" })
