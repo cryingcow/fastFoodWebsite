@@ -7,14 +7,15 @@
     <link rel="icon" href="~/image/LogoJanky.png">
     <link href="~/Content/font-awesome/css/all.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     @*<script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
-    <script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>*@
+        <script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>*@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
         body {
-            font-family: 'Montserrat', sans-serif;
+            background-color: #FFFDE7;
         }
 
         .navbar-brand {
@@ -26,30 +27,23 @@
                 color: black;
             }
 
-        .homeNav:hover {
-            color: #1998E8;
+        .homeNav:hover:disabled {
+            background-color: #FFF9C4;
         }
 
-        .newArrivalsNav:hover {
-            color: #1998E8;
-        }
-
-        .infoNav:hover {
-            color: #1998E8;
-        }
 
         .navbar-fixed-top {
-            background-color: #F8F9FD;
-            border-bottom-color: #F8F9FD;
+            background-color: #FFF9C4;
+            border-bottom-color: #FFF9C4;
         }
 
         .text-white {
             color: white;
         }
 
-        .btn:hover {
+        /*.btn:hover {
             color: #1998E8;
-        }
+        }*/
 
         .btn {
             color: white
@@ -89,7 +83,9 @@
         .dropdown:hover .dropdown-menu-dark {
             display: block;
         }
-
+        .nav > li > a:hover{
+            background-color:#FFF9C4;
+        }
     </style>
 
 </head>
@@ -110,32 +106,55 @@
                 <ul class="nav navbar-nav">
                     @*<li><a class="homeNav" href="/Home/Index" style="color:black">Home</a></li>*@
                     <li style="margin: 7px"> <a class="homeNav" href="/Home/Index"><img style="height: 50px" src="~/image/JankyFood.png" /></a></li>
-                    <li><a class="newArrivalsNav" href="/Home/Index/#newArrivals" style="color:black">New Arrivals</a></li>
-
-                    <li class="nav-item dropdown">
-                        <a class="manPage" href="/Home/Man" style="color:black">
-                            Man
-                            <span class="caret"></span>
+                    <li><a class="newArrivalsNav" href="/Home/Index/#newArrivals" style="color:#6E131C; font-weight: 600;">
+                        Menu
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
+                    </li>
+
+                    <li @*class="nav-item dropdown"*@>
+                        <a class="BurgerPage" href="/Home/Man" style="color:#6E131C; font-weight: 600">
+                            Burger
+                            @*<span class="caret"></span>*@
+                        </a>
+                        @*<ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/LoaiHang/Man/#ManTS">Shirts</a></li>
                             <li><a class="dropdown-item" href="/LoaiHang/Man/#ManS">T-shirts & Polo Shirts</a></li>
                             <li><a class="dropdown-item" href="/LoaiHang/Man/#ManPS">Pants & Shorts</a></li>
-                        </ul>
+                        </ul>*@
                         </li>
-                    <li class="nav-item dropdown">
-                        <a class="womanPage" href="/Home/Woman" style="color:black">
-                            Women
-                            <span class="caret"></span>
+                    <li @*class="nav-item dropdown"*@>
+                        <a class="ComboPage" href="/Home/Woman" style="color:#6E131C; font-weight: 600">
+                            Combo
+                            @*<span class="caret"></span>*@
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
+                        @*<ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/LoaiHang/Woman/#WomanD">Dresses</a></li>
                             <li><a class="dropdown-item" href="/LoaiHang/Woman/#WomanTS">Tops & Shirts</a></li>
                             <li><a class="dropdown-item" href="/LoaiHang/Woman/#WomanT">T-Shirts</a></li>
-                        </ul>
+                        </ul>*@
+                    </li>
+                    <li>
+                        <a class="ChickenPage" href="#" style="color:#6E131C; font-weight: 600">
+                            Gà Rán
+                        </a>
+                    </li>
+                    <li>
+                        <a class="RicePage" href="#" style="color:#6E131C; font-weight: 600">
+                            Cơm
+                        </a>
+                    </li>
+                    <li>
+                        <a class="SnackPage" href="#" style="color:#6E131C; font-weight: 600">
+                            Thức Ăn Kèm
+                        </a>
+                    </li>
+                    <li>
+                        <a class="DrinkPage" href="#" style="color:#6E131C; font-weight: 600">
+                            Thức Uống
+                        </a>
                     </li>
 
-                    <li><a class="infoNav" href="/Home/Index/#info" style="color:black">Info</a></li>
+                    <li><a class="infoNav" href="/Home/Index/#info" style="color:#6E131C; font-weight: 600">Thông Tin</a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
