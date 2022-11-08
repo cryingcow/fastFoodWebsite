@@ -43,15 +43,136 @@ namespace EcommerceWeb.Controllers
             return View(db.MatHangs.ToList());
         }
 
-        public ActionResult Man(int page = 1, int pageSize = 8)
+        public ActionResult Man(string sortBy, int page = 1, int pageSize = 8)
         {
-            List<MatHang> products = db.MatHangs.Where(x => x.LoaiID == 1).ToList();
+
+            ViewBag.SortNameParameter = string.IsNullOrEmpty(sortBy) ? "Price decs" : "";
+            List<MatHang> products = db.MatHangs.Where(x => x.LoaiID == 6).ToList();
+            switch (sortBy)
+            {
+                case "Price decs":
+                    products = products.OrderByDescending(x => x.DonGia).ToList();
+                    break;
+                default:
+                    products = products.OrderBy(x => x.DonGia).ToList();
+                    break;
+            }
+
+           
             PagedList<MatHang> model = new PagedList<MatHang>(products, page, pageSize);
             return View(model);
         }
         public ActionResult Woman(int page = 1, int pageSize = 8)
         {
-            List<MatHang> products = db.MatHangs.Where(x => x.Gender == 0).ToList();
+            List<MatHang> products = db.MatHangs.Where(x => x.LoaiID == 5).ToList();
+            PagedList<MatHang> model = new PagedList<MatHang>(products, page, pageSize);
+            return View(model);
+        }
+        public ActionResult Burger(string sortBy,int page = 1, int pageSize = 8)
+        {
+            ViewBag.SortNameParameter = string.IsNullOrEmpty(sortBy) ? "Price decs" : "";
+            List<MatHang> products = db.MatHangs.Where(x => x.LoaiID == 1).ToList();
+            switch (sortBy)
+            {
+                case "Price decs":
+                    products = products.OrderByDescending(x => x.DonGia).ToList();
+                    break;
+                default:
+                    products = products.OrderBy(x => x.DonGia).ToList();
+                    break;
+            }
+
+
+            PagedList<MatHang> model = new PagedList<MatHang>(products, page, pageSize);
+            return View(model);
+        }
+        public ActionResult Combo(string sortBy, int page = 1, int pageSize = 8)
+        {
+            ViewBag.SortNameParameter = string.IsNullOrEmpty(sortBy) ? "Price decs" : "";
+            List<MatHang> products = db.MatHangs.Where(x => x.LoaiID == 2).ToList();
+            switch (sortBy)
+            {
+                case "Price decs":
+                    products = products.OrderByDescending(x => x.DonGia).ToList();
+                    break;
+                default:
+                    products = products.OrderBy(x => x.DonGia).ToList();
+                    break;
+            }
+
+
+            PagedList<MatHang> model = new PagedList<MatHang>(products, page, pageSize);
+            return View(model);
+        }
+        public ActionResult Chicken(string sortBy ,int page = 1, int pageSize = 8)
+        {
+            ViewBag.SortNameParameter = string.IsNullOrEmpty(sortBy) ? "Price decs" : "";
+            List<MatHang> products = db.MatHangs.Where(x => x.LoaiID == 3).ToList();
+            switch (sortBy)
+            {
+                case "Price decs":
+                    products = products.OrderByDescending(x => x.DonGia).ToList();
+                    break;
+                default:
+                    products = products.OrderBy(x => x.DonGia).ToList();
+                    break;
+            }
+
+
+            PagedList<MatHang> model = new PagedList<MatHang>(products, page, pageSize);
+            return View(model);
+        }
+        public ActionResult Rice(string sortBy, int page = 1, int pageSize = 8)
+        {
+            ViewBag.SortNameParameter = string.IsNullOrEmpty(sortBy) ? "Price decs" : "";
+            List<MatHang> products = db.MatHangs.Where(x => x.LoaiID == 4).ToList();
+            switch (sortBy)
+            {
+                case "Price decs":
+                    products = products.OrderByDescending(x => x.DonGia).ToList();
+                    break;
+                default:
+                    products = products.OrderBy(x => x.DonGia).ToList();
+                    break;
+            }
+
+
+            PagedList<MatHang> model = new PagedList<MatHang>(products, page, pageSize);
+            return View(model);
+        }
+        public ActionResult SideDishes(string sortBy, int page = 1, int pageSize = 8)
+        {
+            ViewBag.SortNameParameter = string.IsNullOrEmpty(sortBy) ? "Price decs" : "";
+            List<MatHang> products = db.MatHangs.Where(x => x.LoaiID == 5).ToList();
+            switch (sortBy)
+            {
+                case "Price decs":
+                    products = products.OrderByDescending(x => x.DonGia).ToList();
+                    break;
+                default:
+                    products = products.OrderBy(x => x.DonGia).ToList();
+                    break;
+            }
+
+
+            PagedList<MatHang> model = new PagedList<MatHang>(products, page, pageSize);
+            return View(model);
+        }
+        public ActionResult Drink(string sortBy,int page = 1, int pageSize = 8)
+        {
+            ViewBag.SortNameParameter = string.IsNullOrEmpty(sortBy) ? "Price decs" : "";
+            List<MatHang> products = db.MatHangs.Where(x => x.LoaiID == 6).ToList();
+            switch (sortBy)
+            {
+                case "Price decs":
+                    products = products.OrderByDescending(x => x.DonGia).ToList();
+                    break;
+                default:
+                    products = products.OrderBy(x => x.DonGia).ToList();
+                    break;
+            }
+
+
             PagedList<MatHang> model = new PagedList<MatHang>(products, page, pageSize);
             return View(model);
         }

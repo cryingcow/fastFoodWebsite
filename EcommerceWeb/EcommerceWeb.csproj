@@ -628,6 +628,12 @@
     <Content Include="Views\HoaDon\OrderUser.cshtml" />
     <Content Include="Views\KhachHang\EditCustomer.cshtml" />
     <Content Include="Views\Admin\Statistic.cshtml" />
+    <Content Include="Views\Home\Burger.cshtml" />
+    <Content Include="Views\Home\Combo.cshtml" />
+    <Content Include="Views\Home\Chicken.cshtml" />
+    <Content Include="Views\Home\Rice.cshtml" />
+    <Content Include="Views\Home\SideDishes.cshtml" />
+    <Content Include="Views\Home\Drink.cshtml" />
     <None Include="Web.EcommerceWeb20220602155355 - Web Deploy.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

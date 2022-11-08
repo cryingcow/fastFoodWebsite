@@ -137,7 +137,41 @@ namespace EcommerceWeb.Controllers
             var womanProduct = db.MatHangs.Where(x => x.Gender == 0).ToList();
             return View(womanProduct);
         }
+        public ActionResult Burger()
+        {
+            var burgerProduct = db.MatHangs.Where(x => x.LoaiID == 1).ToList();
+            return View(burgerProduct);
+        }
 
+        public ActionResult Combo()
+        {
+            var comboProduct = db.MatHangs.Where(x => x.LoaiID == 2).ToList();
+            return View(comboProduct);
+        }
+
+        public ActionResult Chicken()
+        {
+            var chickenProduct = db.MatHangs.Where(x => x.LoaiID == 3).ToList();
+            return View(chickenProduct);
+        }
+
+        public ActionResult Rice()
+        {
+            var riceProduct = db.MatHangs.Where(x => x.LoaiID == 4).ToList();
+            return View(riceProduct);
+        }
+
+        public ActionResult SideDishes()
+        {
+            var snackProduct = db.MatHangs.Where(x => x.LoaiID == 5).ToList();
+            return View(snackProduct);
+        }
+
+        public ActionResult Drink()
+        {
+            var drinkProduct = db.MatHangs.Where(x => x.LoaiID == 6).ToList();
+            return View(drinkProduct);
+        }
 
 
         public ActionResult ManTS()
