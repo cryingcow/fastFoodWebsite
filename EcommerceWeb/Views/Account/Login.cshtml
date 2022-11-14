@@ -4,12 +4,19 @@
     ViewBag.Title = "Log in";
 }
 <style>
-    .btn-default{
-        color: black;
-        border-radius: 0;
+    hr{
+        display:none;
     }
-        .btn-default:hover{
-            color: dimgrey
+    .btn-default {
+        background-color: #ffbe33;
+        border-radius: 15px;
+        color:black;
+        border:none;
+    }
+        .btn-default:hover {
+            color: white;
+            background-color: #ffbe33;
+           
         }
         a {
             color: black
@@ -19,7 +26,8 @@
         color: gray
     }
     .form-control{
-        border-radius: 0
+        width:300px;
+        height:40px;
     }
     #right {
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -31,21 +39,45 @@
         padding-left: 10px;
         padding-top: 20px
     }
+    .form-group{
+        display:flex;
+        flex-direction:column;
+    }
+    .control-label{
+        display:inherit;
+    }
+    .col-md-6{
+        justify-content:center;
+        display:flex;
+    }
+    #btn-link{
+        text-align:center;
+        margin-top:35px;
+        display:block;
+    }
+        #btn-link::before {
+            content: ' ';
+            display: block;
+            border-top: 1px groove #f5f5f5;
+            width: 220px;
+            height: 10px;
+            margin: auto;
+        }
 </style>
 
-<div class="container-fluid" style="padding-top: 100px; background-color: #FFFDE7">
+<div class="container-fluid" style="padding-top: 50px; background-color: #212529">
     <div class="row">
-        <div class="col-md-6">
-            <div id="left" class="container" style="background-color: black; height: 200px; width: 400px; float: right">
-                <p style="text-align: center; padding: 90px 0; color: white; font-size: large">LOGIN</p>
-            </div>
+        <div class="col-md-6" >
+            <img src="~/image/about-img.png" style="height: 500px" />
         </div>
-        <div id="right" class="col-md-6" style="height: 350px; width: 500px; background-color: white; padding-top: 20px; margin-bottom: 50px; padding-bottom: 50px">
+        <div id="right" class="col-md-6" style="height: 500px; background-color: #FFFD7E; border-radius:15px 0 0 15px;">
+          
             <section id="loginForm">
                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <h1 class="text-center text-font">Đăng Nhập</h1>
                     <div class="form-group">
                         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
                         <div class="col-md-10">
@@ -54,27 +86,27 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
+                        @Html.LabelFor(m => m.Password,"Mật Khẩu", new { @class = "col-md-4 control-label" })
+                        <div class="col-md-12">
                             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
+                    <div class="form-group" style="text-align:center">
+                        <div class="col-md-12">
                             <div class="checkbox">
                                 @Html.CheckBoxFor(m => m.RememberMe)
-                                @Html.LabelFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe,"Ghi nhớ đăng nhập ?")
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Sign In" class="btn btn-default" />
+                    <div class="form-group text-center">
+                        <div class="col-md-12">
+                            <input type="submit" value="Đăng nhập" class="btn btn-default" />
                         </div>
                     </div>
-                    <p id="btn" style="margin-left: 73px">
-                        @Html.ActionLink("You don't have account ?", "Register")
+                    <p id="btn-link">
+                        @Html.ActionLink("Bạn chưa có tài khoản ?", "Register")
                     </p>
                 }
             </section>

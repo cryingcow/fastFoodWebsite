@@ -335,6 +335,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\about-img.png" />
     <Content Include="image\anh.jpg" />
     <Content Include="image\ARON.png" />
     <Content Include="image\banner.jpg" />
