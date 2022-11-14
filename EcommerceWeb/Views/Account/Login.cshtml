@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Log in";
 }
+    <link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
 <style>
     hr{
         display:none;
@@ -63,29 +64,39 @@
             height: 10px;
             margin: auto;
         }
+
+    a.linkBtn{
+        color: #6E131C;
+    }
+
+    #logIn{
+        font-family: 'Dancing Script', cursive;
+    }
 </style>
 
 <div class="container-fluid" style="padding-top: 50px; background-color: #212529">
     <div class="row">
         <div class="col-md-6" >
-            <img src="~/image/about-img.png" style="height: 500px" />
+            <img src="~/image/burgerArt.png" style="height: 450px; padding-top: 75px" />
         </div>
-        <div id="right" class="col-md-6" style="height: 500px; background-color: #FFFD7E; border-radius:15px 0 0 15px;">
+        <div id="right" class="col-md-6" style="height: 500px; background-color: #FFFDE7; border-radius:15px 0 0 15px;">
           
             <section id="loginForm">
                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <h1 class="text-center text-font">Đăng Nhập</h1>
-                    <div class="form-group">
+                    <h1 class="text-center text-font" id="logIn" style="color: #6E131C; font-weight: bold; font-size: 50px">
+                        Đăng Nhập
+                    </h1>
+                    <div class="form-group" style="color: #6E131C">
                         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
                         <div class="col-md-10">
                             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="color: #6E131C">
                         @Html.LabelFor(m => m.Password,"Mật Khẩu", new { @class = "col-md-4 control-label" })
                         <div class="col-md-12">
                             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
@@ -94,7 +105,7 @@
                     </div>
                     <div class="form-group" style="text-align:center">
                         <div class="col-md-12">
-                            <div class="checkbox">
+                            <div class="checkbox" style="color:#6E131C">
                                 @Html.CheckBoxFor(m => m.RememberMe)
                                 @Html.LabelFor(m => m.RememberMe,"Ghi nhớ đăng nhập ?")
                             </div>
@@ -106,7 +117,7 @@
                         </div>
                     </div>
                     <p id="btn-link">
-                        @Html.ActionLink("Bạn chưa có tài khoản ?", "Register")
+                        @Html.ActionLink("Bạn chưa có tài khoản ?", "Register", null, new { @class = "linkBtn"})
                     </p>
                 }
             </section>

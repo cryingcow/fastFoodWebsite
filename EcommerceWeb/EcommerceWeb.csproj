@@ -335,7 +335,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="image\about-img.png" />
     <Content Include="image\anh.jpg" />
     <Content Include="image\ARON.png" />
     <Content Include="image\banner.jpg" />
@@ -363,6 +362,7 @@
     <Content Include="image\bg8.jpg" />
     <Content Include="image\bg9.jpg" />
     <Content Include="image\burger.png" />
+    <Content Include="image\burgerArt.png" />
     <Content Include="image\cb1.jpg" />
     <Content Include="image\cb10.jpg" />
     <Content Include="image\cb11.jpg" />
