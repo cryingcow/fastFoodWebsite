@@ -13,9 +13,11 @@
     }
 
     .btnActionCart {
-        color: white;
-        background-color: black;
-        border-radius: 0px;
+        color: #6E131C;
+        background-color: #ffbe33;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: #6E131C;
         height: 45px;
         width: 200px;
         margin-top: 10px;
@@ -25,7 +27,7 @@
     .form-select {
         height: 40px;
         width: 200px;
-        border-radius: 0px;
+        border-radius: 10px;
         border: solid 1.5px;
         margin-top: 10px;
         margin-left: 10px
@@ -77,12 +79,12 @@
             <div class="text-center">
                 <h3>@Html.DisplayFor(model => model.TenMH)</h3>
                 <hr style="width: 70%" />
-                <h4 style="margin-top: 30px">$ @a</h4>
+                <h4 style="margin-top: 30px"> @a VNĐ</h4>
 
                 <div style="margin-top: 30px">
-                    <span style="font-weight: bold">AVAILABLE</span><br />
+                    <span style="font-weight: bold">CÒN MÓN</span><br />
                     <span>
-                        Your selection is available for immediate purchase online.
+                        Lựa chọn của bạn có sẵn để mua trực tuyến ngay lập tức.
                     </span>
                 </div><br />
                 @*<select class="form-select" aria-label="Default select example">
@@ -93,24 +95,24 @@
                     }
                 </select><br />*@
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>Select Size</option>
+                    <option selected>Mời bạn chọn size..</option>
                     @foreach (string size in sizes)
                     {
                         <option class="size-option" value=@size>@size</option>
                     }
                 </select><br />
-                <div style="margin: 30px 70px 30px 70px; text-align: justify">@description[new Random().Next(description.Count)]</div><br />
-                <button type="button" class="btnActionCart"><a href="/ShoppingCart/AddtoCart/@Html.DisplayFor(model => model.MatHangID).ToString()" style="color: white; text-decoration: none">ADD TO CART</a></button>
+                @*<div style="margin: 30px 70px 30px 70px; text-align: justify">@description[new Random().Next(description.Count)]</div><br />*@<br/><br /><br />
+                <button type="button" class="btnActionCart"><a href="/ShoppingCart/AddtoCart/@Html.DisplayFor(model => model.MatHangID).ToString()" style="color: #6E131C; text-decoration: none">THÊM VÀO GIỎ HÀNG</a></button>
             </div>
         </div>
     </div>
     <div class="row" style="margin-top: 80px;">
         <div class="col-md-8">
             <div class="panel-group" id="accordion">
-                <div class="panel panel-title">
+                <div class="panel panel-title" style="background-color:#FFF9C4">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a class="extra-info" data-toggle="collapse" data-parent="#accordion" href="#collapse1" style="text-decoration: none">SHIPPING & RETURNS INFO <span style="font-size: 20px; float: right; font-weight: lighter">+</span></a>
+                            <a class="extra-info" data-toggle="collapse" data-parent="#accordion" href="#collapse1" style="text-decoration: none">THÔNG TIN GIAO HÀNG & ĐỔI TRẢ <span style="font-size: 20px; float: right; font-weight: lighter">+</span></a>
                         </h4>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse">
@@ -192,10 +194,10 @@
                         </div>
                     </div>*@
                 </div>
-                <div class="panel panel-title">
+                <div class="panel panel-title" style="background-color:#FFF9C4">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a class="extra-info" data-toggle="collapse" data-parent="#accordion" href="#collapse3" style="text-decoration: none">PAYMENT OPTIONS <span style="font-size: 20px; float: right; font-weight: lighter">+</span></a>
+                            <a class="extra-info" data-toggle="collapse" data-parent="#accordion" href="#collapse3" style="text-decoration: none">PHƯƠNG THỨC THANH TOÁN <span style="font-size: 20px; float: right; font-weight: lighter">+</span></a>
                         </h4>
                     </div>
                     <div id="collapse3" class="panel-collapse collapse">

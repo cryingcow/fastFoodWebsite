@@ -518,6 +518,7 @@
     <Content Include="image\stories4.jpg" />
     <Content Include="image\Thum.jpg" />
     <Content Include="image\Twitter.png" />
+    <Content Include="image\UserAvatar.png" />
     <Content Include="image\woman-banner.jpg" />
     <Content Include="image\woman-cover.jpg" />
     <Content Include="image\Youtube.png" />

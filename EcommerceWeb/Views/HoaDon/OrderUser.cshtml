@@ -64,11 +64,11 @@
         <div style="display: flex; justify-content: center">
             <img src="~/image/empty-cart.png" style="width: 20%" />
         </div>
-        <h2 class="text-center" style="margin: 50px;">HMMM!...YOU HAVEN'T ALREADY MAKE ANY TRANSACTION</h2>
+        <h2 class="text-center" style="margin: 50px;">HMMM!...HIỆN TẠI BẠN CHƯA CÓ ĐƠN HÀNG NÀO CẢ</h2>
     }
     else
     {
-        <h2 class="text-center">TRANSACTIONS</h2>
+        <h2 class="text-center">ĐƠN HÀNG CỦA BẠN</h2>
     }
     @foreach (var item in Model)
     {
@@ -89,19 +89,19 @@
             <div id="proItem" class="col-md-8" style="margin-bottom: 30px">
                 <table class="table">
                     <tr>
-                        <th scope="row">Date</th>
+                        <th scope="row">Ngày</th>
                         <td>@item.Ngay</td>
                     </tr>
                     <tr>
-                        <th scope="row">Customer</th>
+                        <th scope="row">Khách Hàng</th>
                         <td>@db.KhachHangs.FirstOrDefault(x => x.KhachHangID == item.KhachHangID).TenKH</td>
                     </tr>
                     <tr>
-                        <th scope="row">Total Price</th>
-                        <td style="font-weight: bold">$ @item.TongTien.ToString("#,###", @cul.NumberFormat)</td>
+                        <th scope="row">Tổng tiền</th>
+                        <td style="font-weight: bold">@item.TongTien.ToString("#,###", @cul.NumberFormat) VNĐ</td>
                     </tr>
                     <tr>
-                        <th scope="row">Status</th>
+                        <th scope="row">Trạng thái</th>
                         <td>@status</td>
                     </tr>
                 </table>
@@ -109,7 +109,7 @@
                     <div class="panel panel-title">
                         <div class="panel-heading" style="padding: 8px">
                             <h4 class="panel-title">
-                                <a class="extra-info" data-toggle="collapse" data-parent="#accordion" href="#@item.HoaDonID" style="font-size: 14px; font-weight:bold; text-decoration: none">Detail</a>
+                                <a class="extra-info" data-toggle="collapse" data-parent="#accordion" href="#@item.HoaDonID" style="font-size: 14px; font-weight:bold; text-decoration: none">Chi tiết đơn hàng</a>
                             </h4>
                         </div>
                         <div id="@item.HoaDonID" class="panel-collapse collapse">
@@ -126,10 +126,10 @@
                                                     <td style="font-weight: bold">@db.MatHangs.FirstOrDefault(x => x.MatHangID == b.MatHangID).TenMH</td>
                                                 </tr>
                                                 <tr id="custom">
-                                                    <td>Quantity: @b.SoLuong</td>
+                                                    <td>Số lượng: @b.SoLuong</td>
                                                 </tr>
                                                 <tr id="custom">
-                                                    <td style="font-weight: bold">$ @b.ThanhTien.ToString("#,###", @cul.NumberFormat)</td>
+                                                    <td style="font-weight: bold">Giá: @b.ThanhTien.ToString("#,###", @cul.NumberFormat) VNĐ</td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -144,7 +144,7 @@
                 @if (status == "Ordered")
                 {
                     <div class="btnEdit">
-                        <a href="/HoaDon/Cancel?id=@item.HoaDonID" style="text-decoration: none; color: white;">CANCEL</a>
+                        <a href="/HoaDon/Cancel?id=@item.HoaDonID" style="text-decoration: none; color: white;">HỦY ĐƠN</a>
                     </div>
                 }
                 else
@@ -154,7 +154,7 @@
                     </div>
                 }
                 <div class="btnEdit" title="If you've problem, please contact ADMIN now!">
-                    <a href="mailto: nguyentantnnn82@gmail.com" style="text-decoration: none; color: white;">CONTACT ADMIN</a>
+                    <a href="mailto: nguyentantnnn82@gmail.com" style="text-decoration: none; color: white;">LIÊN HỆ ADMIN</a>
                 </div>
             </div>
             <div class="col-md-2"></div>

@@ -76,24 +76,25 @@
         <div class="col-md-2"></div>
         <div id="proItem" class="col-md-8">
             <div class="row">
-                <h2 class="text-center">MY PROFILE</h2>
+                <h2 class="text-center">THÔNG TIN CỦA TÔI</h2>
             </div>
             <div class="row">
                 <div class="col-md-4" style="display: flex; justify-content: center">
-                    <img width="80%" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" alt="profile-image" />
+                    @*<img width="80%" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" alt="profile-image" />*@
+                    <img width="80%" src="~/image/UserAvatar.png" alt="profile-image" style="padding-top:20px" />
                 </div>
                 <div class="col-md-8" style="margin-top: 20px;">
                     <table class="table">
                         <tr>
-                            <th scope="row">Name</th>
+                            <th scope="row">Tên</th>
                             <td>@Model.TenKH</td>
                         </tr>
                         <tr>
-                            <th scope="row">Address</th>
+                            <th scope="row">Địa chỉ</th>
                             <td>@Model.DiaChi</td>
                         </tr>
                         <tr>
-                            <th scope="row">Phone</th>
+                            <th scope="row">Số điện thoại</th>
                             <td>@Model.DienThoai</td>
                         </tr>
                         <tr>
@@ -109,12 +110,12 @@
             </div>
             <div class="row" style="margin-top: 20px">
                 <div class="col-md-6 text-center">
-                    <h5 title="The number of orders that you've ordered successfully">ORDERS</h5>
+                    <h5 title="The number of orders that you've ordered successfully">ĐƠN HÀNG CỦA BẠN</h5>
                     <h1 style="font-weight: bold">@orderCount</h1>
                 </div>
                 <div class="col-md-6 text-center">
-                    <h5 title="Total amount of your own orders">AMOUNT</h5>
-                    <h1 style="font-weight: bold">$ @priceCount.ToString("#,###", @cul.NumberFormat)</h1>
+                    <h5 title="Total amount of your own orders">SỐ LƯỢNG</h5>
+                    <h1 style="font-weight: bold">@priceCount.ToString("#,###", @cul.NumberFormat) VNĐ</h1>
                 </div>
             </div>
             <div class="row">
@@ -146,12 +147,12 @@
             </div>
             <div class="row">
                 <div class="btnEdit">
-                    <a href="/HoaDon/OrderUser?KhachHangID=@Model.KhachHangID" style="text-decoration: none; color: white;">SEE YOUR ORDERS</a>
+                    <a href="/HoaDon/OrderUser?KhachHangID=@Model.KhachHangID" style="text-decoration: none; color: white;">KIỂM TRA ĐƠN HÀNG CỦA BẠN</a>
                 </div>
             </div>
             <div class="row">
                 <div class="btnEdit">
-                    <a href="/KhachHang/EditCustomer?id=@Model.KhachHangID" style="text-decoration: none; color: white;">CHANGE YOUR INFORMATION</a>
+                    <a href="/KhachHang/EditCustomer?id=@Model.KhachHangID" style="text-decoration: none; color: white;">CHỈNH SỬA THÔNG TIN CÁ NHÂN</a>
                 </div>
             </div>
 
