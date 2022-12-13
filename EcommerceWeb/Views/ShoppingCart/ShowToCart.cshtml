@@ -4,59 +4,65 @@
     ViewBag.Title = "ShowToCart";
     CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
 }
-<head>
-    <style>
-        #buttonBuyNow {
-            color: black;
-            border-radius: 0px;
-            background: transparent;
-            border: solid 1px;
-            font-weight: bold;
-            font-size: 20px;
-        }
-        div.gallery img {
-            width: 150px;
-            height: 150px;
-            margin: 30px;
-            display: inline-block;
-        }
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+        <style>
+            #buttonBuyNow {
+                color: black;
+                border-radius: 0px;
+                background: transparent;
+                border: solid 1px;
+                font-weight: bold;
+                font-size: 20px;
+            }
+
+            div.gallery img {
+                width: 150px;
+                height: 150px;
+                margin: 30px;
+                display: inline-block;
+            }
 
 
-        div.gallery {
-            margin-left: 30px;
-            width: auto;
-            height: auto;
-            display: inline-block;
-            background-color: #F4EBDA;
-        }
+            div.gallery {
+                margin-left: 30px;
+                width: auto;
+                height: auto;
+                display: inline-block;
+                background-color: #F4EBDA;
+            }
 
-        #proItem {
-            margin-left: 5px;
-            padding: 20px;
-        }
-
-
-        table, th, tr, td {
-            border: none !important;
-        }
+            #proItem {
+                margin-left: 5px;
+                padding: 20px;
+            }
 
 
-        #content-product {
-            text-align: left;
-        }
-        #box {
-            border-radius: 0px;
-            border: solid 0.5px
-        }
-    </style>
-</head>
+            table, th, tr, td {
+                border: none !important;
+            }
+
+
+            #content-product {
+                text-align: left;
+            }
+
+            #box {
+                border-radius: 0px;
+                border: solid 0.5px
+            }
+            #titleCart{
+                font-family: 'Dancing Script', cursive;
+            }
+        </style>
+    </head>
 <body>
     <div class="container-fluid">
 
         @if (Model.Items.Count() != 0)
         {
             <a href="/"><i title="Trở về" class="fa-solid fa-arrow-left-long" style="color: #6E131C; margin-top: 75px; font-size: 30px"></i></a>
-            <h1 style="margin-bottom: 20px; text-align: center">Giỏ hàng của bạn</h1>
+            <h1 id="titleCart" style="margin-bottom: 20px; text-align: center; color: #6E131C; font-size: 50px">Giỏ hàng của bạn</h1>
                     foreach (var item in Model.Items)
                     {
                         double tongtien = Convert.ToDouble(item.shoppingProduct.DonGia * item.shoppingQuantity);
