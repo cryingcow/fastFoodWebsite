@@ -73,7 +73,7 @@
                                 <th scope="col">Ảnh</th>
                                 <th scope="col">Tên mặt hàng</th>
                                 <th scope="col">Giá</th>
-                                <th scope="col">Đã thanh toán</th>
+                                <th scope="col">Số lượng</th>
                                 <th scope="col">Doanh thu</th>
                             </tr>
                         </thead>
@@ -92,16 +92,16 @@
                                     </th>
                                     <td>
                                         @item.TenMH @if (bestSeller.Contains(item.MatHangID))
-                                    {<span class="badge">Best Seller</span>}
+                                    {<span class="badge" style="background-color: red">Best Seller</span>}
                                     </td>
-                                    <td>$ @item.DonGia.ToString("#,###", @cul.NumberFormat)</td>
+                                    <td>@item.DonGia.ToString("#,###", @cul.NumberFormat) VNĐ</td>
                                     <td>@purchased</td>
                                     @if (venue == 0)
                                     {
-                                        <td>$0</td>}
+                                        <td>0 VNĐ</td>}
                                     else
                                     {
-                                        <td>$ @venue.ToString("#,###", @cul.NumberFormat)</td>}
+                                        <td>@venue.ToString("#,###", @cul.NumberFormat) VNĐ</td>}
                                 </tr>
                             }
                         </tbody>
@@ -138,7 +138,7 @@
                                     <td>@item.KhachHangID</td>
                                     @if (item.TenKH == null || item.TenKH == "")
                                     {
-                                        <td>not given</td>
+                                        <td>chưa thông tin</td>
                                     }
                                     else
                                     {
@@ -146,7 +146,7 @@
                                     }
                                     @if (item.DiaChi == null || item.DiaChi == "")
                                     {
-                                        <td>not given</td>
+                                        <td>chưa có thông tin</td>
                                     }
                                     else
                                     {
@@ -154,7 +154,7 @@
                                     }
                                     @if (item.DienThoai == null || item.DienThoai == "")
                                     {
-                                        <td>not given</td>
+                                        <td>chưa có thông tin</td>
                                     }
                                     else
                                     {
@@ -164,11 +164,11 @@
                                     <td>@products</td>
                                     @if (amount == 0)
                                     {
-                                        <td>$0</td>
+                                        <td>0 VNĐ</td>
                                     }
                                     else
                                     {
-                                        <td>$ @amount.ToString("#,###", @cul.NumberFormat)</td>
+                                        <td>@amount.ToString("#,###", @cul.NumberFormat) VNĐ</td>
                                     }
                                 </tr>
                             }

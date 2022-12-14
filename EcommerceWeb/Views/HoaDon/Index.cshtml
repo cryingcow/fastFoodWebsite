@@ -86,11 +86,11 @@
         <div style="display: flex; justify-content: center">
             <img src="~/image/empty-cart.png" style="width: 20%" />
         </div>
-        <h2 class="text-center" style="margin: 50px;">EMPTY ORDER</h2>
+        <h2 class="text-center" style="margin: 50px;">HIỆN TẠI CHƯA CÓ ĐƠN HÀNG CẦN XÁC NHẬN</h2>
     }
     else
     {
-        <h2 class="text-center">ORDERS MANAGEMENT</h2>
+        <h2 class="text-center">QUẢN LÝ ĐƠN HÀNG</h2>
     }
     @foreach (var item in Model)
     {
@@ -111,19 +111,19 @@
             <div id="proItem" class="col-md-8" style="margin-bottom: 30px">
                 <table class="table">
                     <tr>
-                        <th scope="row">Date</th>
+                        <th scope="row">Ngày</th>
                         <td>@item.Ngay</td>
                     </tr>
                     <tr>
-                        <th scope="row">Customer</th>
+                        <th scope="row">Khách hàng</th>
                         <td>@db.KhachHangs.FirstOrDefault(x => x.KhachHangID == item.KhachHangID).TenKH</td>
                     </tr>
                     <tr>
-                        <th scope="row">Total Price</th>
+                        <th scope="row">Tổng tiền</th>
                         <td style="font-weight: bold">$ @item.TongTien.ToString("#,###", @cul.NumberFormat)</td>
                     </tr>
                     <tr>
-                        <th scope="row">Status</th>
+                        <th scope="row">Tình trạng</th>
                         <td style="font-weight: bold">@status.ToUpper()</td>
                     </tr>
                 </table>
@@ -131,7 +131,7 @@
                     <div class="panel panel-title">
                         <div class="panel-heading" style="padding: 8px">
                             <h4 class="panel-title">
-                                <a class="extra-info" data-toggle="collapse" data-parent="#accordion" href="#@item.HoaDonID" style="font-size: 14px; font-weight:bold; text-decoration: none">Detail</a>
+                                <a class="extra-info" data-toggle="collapse" data-parent="#accordion" href="#@item.HoaDonID" style="font-size: 14px; font-weight:bold; text-decoration: none">Chi tiết</a>
                             </h4>
                         </div>
                         <div id="@item.HoaDonID" class="panel-collapse collapse">
@@ -148,13 +148,13 @@
                                                     <td style="font-weight: bold">@db.MatHangs.FirstOrDefault(x => x.MatHangID == b.MatHangID).TenMH</td>
                                                 </tr>
                                                 <tr id="custom">
-                                                    <td>Quantity: @b.SoLuong</td>
+                                                    <td>Số lượng: @b.SoLuong</td>
                                                 </tr>
                                                 <tr id="custom">
                                                     <td>@db.MatHangs.FirstOrDefault(x => x.MatHangID == b.MatHangID).DonGia</td>
                                                 </tr>
                                                 <tr id="custom">
-                                                    <td style="font-weight: bold">$ @b.ThanhTien.ToString("#,###", @cul.NumberFormat)</td>
+                                                    <td style="font-weight: bold">@b.ThanhTien.ToString("#,###", @cul.NumberFormat) VNĐ</td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -168,41 +168,41 @@
                 @if (status == "Ordered")
                 {
                     <div class="btnEdit">
-                        <a href="/HoaDon/UpdateOrder?id=@item.HoaDonID" style="text-decoration: none; color: white;">PROCESS</a>
+                        <a href="/HoaDon/UpdateOrder?id=@item.HoaDonID" style="text-decoration: none; color: white;">ĐANG CHỜ</a>
                     </div>
                 }
                 else if (status == "Processing")
                 {
                     <div class="btnEdit">
-                        <a href="/HoaDon/UpdateOrder?id=@item.HoaDonID" style="text-decoration: none; color: white;">DELIVERY</a>
+                        <a href="/HoaDon/UpdateOrder?id=@item.HoaDonID" style="text-decoration: none; color: white;">ĐANG GIAO</a>
                     </div>
                 }
                 else if (status == "Delivery")
                 {
                     <div class="btnEdit">
-                        <a href="/HoaDon/UpdateOrder?id=@item.HoaDonID" style="text-decoration: none; color: white;">SUCCESS</a>
+                        <a href="/HoaDon/UpdateOrder?id=@item.HoaDonID" style="text-decoration: none; color: white;">THÀNH CÔNG</a>
                     </div>
                 }
                 else if (status == "Success")
                 {
                     <div class="btnEdit">
-                        <a style="text-decoration: none; color: white;">SUCCESS DELIVERY</a>
+                        <a style="text-decoration: none; color: white;">GIAO HÀNG HOÀN TẤT</a>
                     </div>
                 }
                 else if (status == "Cancelled")
                 {
                     <div class="btnEdit">
-                        <a style="text-decoration: none; color: white;">SUCCESS CANCELLED</a>
+                        <a style="text-decoration: none; color: white;">XÓA THÀNH CÔNG</a>
                     </div>
                 }
                 else
                 {
                     <div class="btnEdit">
-                        <a href="/HoaDon/UpdateOrder?id=@item.HoaDonID" style="text-decoration: none; color: white;">ACCEPT CANCEL REQUEST</a>
+                        <a href="/HoaDon/UpdateOrder?id=@item.HoaDonID" style="text-decoration: none; color: white;">CHẤP NHẬN YÊU CẦU HỦY</a>
                     </div>
                 }
                 <div class="btnEdit">
-                    <a href="/HoaDon/Delete?id=@item.HoaDonID" style="text-decoration: none; color: white;">REMOVE</a>
+                    <a href="/HoaDon/Delete?id=@item.HoaDonID" style="text-decoration: none; color: white;">XÓA BỎ</a>
                 </div>
             </div>
             <div class="col-md-2"></div>

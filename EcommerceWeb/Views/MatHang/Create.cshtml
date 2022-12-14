@@ -6,6 +6,9 @@
 }
 
 <style>
+    body{
+        background-color: #FFFDE7;
+    }
     .form-control {
         border-radius: 0px;
     }
@@ -45,11 +48,11 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        <h2 style="text-align: center; margin: 40px">ADD NEW PRODUCT</h2>
+        <h2 style="text-align: center; margin: 40px">THÊM SẢN PHẨM MỚI</h2>
         <div class="form-horizontal">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                <label class="control-label col-md-2">Name</label>
+                <label class="control-label col-md-2">Tên sản phẩm</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.TenMH, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.TenMH, "", new { @class = "text-danger" })
@@ -57,7 +60,7 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label col-md-2">Price</label>
+                <label class="control-label col-md-2">Giá</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
@@ -65,7 +68,7 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label col-md-2">Description</label>
+                <label class="control-label col-md-2">Mô tả</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
@@ -73,7 +76,7 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label col-md-2">Size</label>
+                <label class="control-label col-md-2">Kích cỡ</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Size, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
@@ -97,7 +100,7 @@
             </div>*@
 
             <div class="form-group">
-                <label class="control-label col-md-2">Type</label>
+                <label class="control-label col-md-2">Loại</label>
                 <div class="col-md-10">
                     @Html.DropDownList("LoaiID", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.LoaiID, "", new { @class = "text-danger" })
@@ -105,7 +108,7 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label col-md-2">Picture</label>
+                <label class="control-label col-md-2">Ảnh</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.HinhAnh, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
@@ -115,10 +118,10 @@
             <div class="form-group" style="margin-top: 30px">
 
                 <div class="col-md-offset-2 child">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Tạo" class="btn btn-default" />
                 </div>
                 <div class="col-md-offset-2 child" style="margin-left: 10px;">
-                    @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-default" })
                 </div>
             </div>
         </div>
