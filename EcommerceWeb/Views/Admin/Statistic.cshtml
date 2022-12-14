@@ -9,6 +9,9 @@
     var bestSeller = Model.Item4.Where(x => successOrder.Contains(x.HoaDonID)).GroupBy(p => p.MatHangID).OrderByDescending(pi => pi.Sum(pii => pii.SoLuong)).Take(1).Select(p => p.Key);
 }
 <style>
+    body {
+        background-color: #FFFDE7;
+    }
     .nav-tabs > li {
         float: none;
         display: inline-block;
@@ -47,14 +50,18 @@
         .table > thead > tr > th {
             border-bottom: 0.2px
         }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        background-color:inherit;
+    }
 </style>
 
 <div class="container" style="font-size: 10px; margin-bottom: 50px">
-    <h2 style="text-align: center; margin-top: 100px;">STATISTIC MANAGEMENT</h2>
+    <a href="/Admin/Index" title="Dashboard" class="btn-create" style="float: right; margin-top: 50px; margin-right: 10px"><i class="fa fa-arrow-left fa-2x" style="color: black"></i></a>
+    <h2 style="text-align: center; margin-top: 100px;">QUẢN LÝ DOANH THU</h2>
     <div class="row text-center">
         <ul class="nav nav-tabs">
-            <li class="active" style="width: 49%"><a data-toggle="tab" href="#menu1" style="font-size: 15px; color: black">PRODUCT</a></li>
-            <li style="width: 49%"><a data-toggle="tab" href="#menu2" style="font-size: 15px; color: black">CUSTOMER</a></li>
+            <li class="active" style="width: 49%"><a data-toggle="tab" href="#menu1" style="font-size: 15px; color: black">SẢN PHẨM</a></li>
+            <li style="width: 49%"><a data-toggle="tab" href="#menu2" style="font-size: 15px; color: black">KHÁCH HÀNG</a></li>
         </ul>
 
         <div class="tab-content">
@@ -63,11 +70,11 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Pic.</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Purchased</th>
-                                <th scope="col">Venue</th>
+                                <th scope="col">Ảnh</th>
+                                <th scope="col">Tên mặt hàng</th>
+                                <th scope="col">Giá</th>
+                                <th scope="col">Đã thanh toán</th>
+                                <th scope="col">Doanh thu</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -83,12 +90,18 @@
                                             </a>
                                         </div>
                                     </th>
-                                    <td>@item.TenMH @if (bestSeller.Contains(item.MatHangID))
-                                    {<span class="badge">Best Seller</span>}</td>
+                                    <td>
+                                        @item.TenMH @if (bestSeller.Contains(item.MatHangID))
+                                    {<span class="badge">Best Seller</span>}
+                                    </td>
                                     <td>$ @item.DonGia.ToString("#,###", @cul.NumberFormat)</td>
                                     <td>@purchased</td>
-                                    @if (venue == 0) { <td>$0</td>}
-                                    else { <td>$ @venue.ToString("#,###", @cul.NumberFormat)</td>}
+                                    @if (venue == 0)
+                                    {
+                                        <td>$0</td>}
+                                    else
+                                    {
+                                        <td>$ @venue.ToString("#,###", @cul.NumberFormat)</td>}
                                 </tr>
                             }
                         </tbody>
@@ -104,13 +117,13 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Phone No.</th>
-                                <th scope="col">Orders</th>
-                                <th scope="col">Products</th>
-                                <th scope="col">Amount</th>
+                                <th scope="col">ST</th>
+                                <th scope="col">Tên</th>
+                                <th scope="col">Địa chỉ</th>
+                                <th scope="col">Sđt</th>
+                                <th scope="col">Đơn hàng</th>
+                                <th scope="col">Sản phẩm</th>
+                                <th scope="col">Số lượng</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -121,43 +134,43 @@
                                 var orders = general.AsEnumerable().Count();
                                 var products = Model.Item4.Where(y => order.Contains(y.HoaDonID)).AsEnumerable().Count();
                                 var amount = general.Select(y => y.TongTien).AsEnumerable().Sum();
-                            <tr>
-                                <td>@item.KhachHangID</td>
-                                @if (item.TenKH == null || item.TenKH == "")
-                                {
-                                    <td>not given</td>
-                                }
-                                else
-                                {
-                                    <td>@item.TenKH</td>
-                                }
-                                @if (item.DiaChi == null || item.DiaChi == "")
-                                {
-                                    <td>not given</td>
-                                }
-                                else
-                                {
-                                    <td>@item.DiaChi</td>
-                                }
-                                @if (item.DienThoai == null || item.DienThoai == "")
-                                {
-                                    <td>not given</td>
-                                }
-                                else
-                                {
-                                    <td>@item.DienThoai</td>
-                                }
-                                <td>@orders</td>
-                                <td>@products</td>
-                                @if (amount == 0)
-                                {
-                                    <td>$0</td>
-}
-                                else
-                                {
-                                    <td>$ @amount.ToString("#,###", @cul.NumberFormat)</td>
-}
-                            </tr>
+                                <tr>
+                                    <td>@item.KhachHangID</td>
+                                    @if (item.TenKH == null || item.TenKH == "")
+                                    {
+                                        <td>not given</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.TenKH</td>
+                                    }
+                                    @if (item.DiaChi == null || item.DiaChi == "")
+                                    {
+                                        <td>not given</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.DiaChi</td>
+                                    }
+                                    @if (item.DienThoai == null || item.DienThoai == "")
+                                    {
+                                        <td>not given</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.DienThoai</td>
+                                    }
+                                    <td>@orders</td>
+                                    <td>@products</td>
+                                    @if (amount == 0)
+                                    {
+                                        <td>$0</td>
+                                    }
+                                    else
+                                    {
+                                        <td>$ @amount.ToString("#,###", @cul.NumberFormat)</td>
+                                    }
+                                </tr>
                             }
                         </tbody>
                     </table>

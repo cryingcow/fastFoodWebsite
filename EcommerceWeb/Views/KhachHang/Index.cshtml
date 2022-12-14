@@ -45,7 +45,7 @@
 <div class="container" style="font-size: 10px; margin-bottom: 50px">
     <a href="/KhachHang/Create" title="Add New User" class="btn-create" style="float: right; margin-top: 50px;"><i class="fa fa-plus-circle fa-2x" style="color: black"></i></a>
     <a href="/Admin/Index" title="Dashboard" class="btn-create" style="float: right; margin-top: 50px; margin-right: 10px"><i class="fa fa-arrow-left fa-2x" style="color: black"></i></a>
-    <h2 style="text-align: center; margin-top: 150px;">USER MANAGEMENT</h2>
+    <h2 style="text-align: center; margin-top: 150px;">QUẢN LÝ KHÁCH HÀNG</h2>
 
     <div class="row" style="margin-top: 50px">
         <h1> Số lượng tài khoản: @Model.Count().ToString()</h1>
@@ -54,31 +54,31 @@
         <div id="proItem" class="col-md-3">
             <table class="table">
                 <tr>
-                    <th scope="row">Name</th>
+                    <th scope="row">Tên</th>
                     <td>@item.TenKH</td>
                 </tr>
                 <tr>
-                    <th scope="row">Address</th>
+                    <th scope="row">Địa chỉ</th>
                     <td>@item.DiaChi</td>
                 </tr>
                 <tr>
-                    <th scope="row">Phone</th>
+                    <th scope="row">Sđt</th>
                     <td>@item.DienThoai</td>
                 </tr>
                 <tr>
-                    <th scope="row">Username</th>
+                    <th scope="row">Tài khoản</th>
                     <td>@item.Username</td>
                 </tr>
                 <tr>
-                    <th scope="row">Password</th>
+                    <th scope="row">Mật khẩu</th>
                     <td>@item.Password</td>
                 </tr>
             </table>
             <div class="btnEdit">
-                @Html.ActionLink("Edit", "Edit", new { id = item.KhachHangID }, new { @class = "btn-edit" })
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.KhachHangID }, new { @class = "btn-edit" })
             </div>
             <div class="btnDelete">
-                @Html.ActionLink("Delete", "Delete", new { id = item.KhachHangID }, new { @class = "btn-delete" })
+                @Html.ActionLink("Xóa", "Delete", new { id = item.KhachHangID }, new { @class = "btn-delete" })
             </div>
         </div>
         }

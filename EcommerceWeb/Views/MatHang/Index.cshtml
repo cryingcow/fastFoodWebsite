@@ -8,6 +8,9 @@
 <html>
 <head>
     <style>
+        body {
+            background-color: #FFFDE7;
+        }
         div.gallery img {
             width: 150px;
             height: 150px;
@@ -76,7 +79,7 @@
     <div class="container" style="margin-bottom: 50px">
         <a href="/MatHang/Create" title="Add New User" class="btn-create" style="float: right; margin-top: 50px;"><i class="fa fa-plus-circle fa-2x" style="color: black"></i></a>
         <a href="/Admin/Index" title="Dashboard" class="btn-create" style="float: right; margin-top: 50px; margin-right: 10px"><i class="fa fa-arrow-left fa-2x" style="color: black"></i></a>
-        <h2 style="text-align: center; margin-top: 100px;">PRODUCT MANAGEMENT</h2>
+        <h2 style="text-align: center; margin-top: 100px;">QUẢN LÝ SẢN PHẨM</h2>
         <div style="text-align: center; margin-top: 100px">
             <div class="form-group">
                 <div class="input-group" style="margin: 0 auto; width: 250px;">
@@ -99,31 +102,31 @@
                     <div class="col-md-9">
                         <table class="table">
                             <tr>
-                                <th scope="row">Name</th>
+                                <th scope="row">Tên sản phẩm</th>
                                 <td id="content-product">@item.TenMH</td>
                                 
                             </tr>
                             <tr>
-                                <th scope="row">Price</th>
+                                <th scope="row">Giá</th>
                                 <td id="content-product">@item.DonGia.ToString("#,###", @cul.NumberFormat) VND</td>
                             </tr>
                             <tr>
-                                <th scope="row">Type</th>
+                                <th scope="row">Loại</th>
                                 <td id="content-product">@item.LoaiHang.TenLoai</td>
                             </tr>
                             <tr>
-                                <th scope="row">Size</th>
+                                <th scope="row">Cỡ</th>
                                 <td id="content-product">@item.Size</td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="btnEdit">
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.MatHangID }, new { @class = "btn-edit" })
+                                        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MatHangID }, new { @class = "btn-edit" })
                                     </div>
                                 </td>
                                 <td>
                                     <div class="btnDelete">
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.MatHangID }, new { @class = "btn-delete" })
+                                        @Html.ActionLink("Xóa", "Delete", new { id = item.MatHangID }, new { @class = "btn-delete" })
                                     </div>
                                 </td>
                             </tr>
